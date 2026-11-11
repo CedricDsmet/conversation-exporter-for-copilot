@@ -1,0 +1,15 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{font:16px/1.6 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1f2328;background:#f6f7f9;margin:0;padding:24px 28px}
+main{max-width:860px;margin:0 auto}h1{font-size:1.45rem;margin:0 0 4px}.meta{color:#667085;font-size:.8rem;margin-bottom:18px}
+.msg{background:#fff;border:1px solid #e3e6ea;border-radius:12px;padding:12px 20px;margin:0 0 14px;font-size:14.5px}.msg.user{background:#eef4ff;border-color:#cfdcf7;margin-left:12%}
+.role{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#667085;margin-bottom:4px}
+.msg h3{font-size:1.05rem;margin:.6em 0 .4em}table{border-collapse:collapse;margin:.6em 0;font-size:13.5px}th,td{border:1px solid #d0d5dd;padding:5px 12px;text-align:left}th{background:#f2f4f7}
+pre{background:#111827;color:#e5e7eb;padding:12px 14px;border-radius:8px;font-size:.8rem;margin:.6em 0}code{font-family:ui-monospace,SFMono-Regular,Consolas,Menlo,monospace}p{margin:.4em 0}ul{margin:.3em 0}</style></head><body><main>
+<h1>Hosting options for the billing API</h1><div class="meta">Exported from Microsoft Copilot on 10 November 2026 at 14:32 · 14 messages</div>
+<section class="msg user"><div class="role">You</div><p>Compare our three hosting options on cost, effort and risk, as a table.</p></section>
+<section class="msg"><div class="role">Copilot</div><h3>Hosting options compared</h3>
+<table><tr><th>Option</th><th>Monthly cost</th><th>Setup effort</th><th>Risk</th></tr><tr><td>Managed PaaS</td><td>€420</td><td>Low</td><td>Low</td></tr><tr><td>Kubernetes</td><td>€310</td><td>High</td><td>Medium</td></tr><tr><td>Single VM</td><td>€90</td><td>Medium</td><td>High</td></tr></table>
+<p><b>Recommendation:</b> start on managed PaaS. It costs a little more, but the team ships this quarter without learning a new platform.</p>
+<pre><code>az webapp up --name billing-api --sku P1v3</code></pre></section>
+<section class="msg user"><div class="role">You</div><p>Great, summarise this for the team.</p></section>
+<section class="msg"><div class="role">Copilot</div><ul><li>Go with managed PaaS for launch</li><li>Revisit Kubernetes once traffic passes 1M requests/day</li></ul></section>
+</main></body></html>

@@ -1,0 +1,8 @@
+.popup{font:14px/1.45 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;width:322px;padding:16px;color:#1f2328;background:#fff}
+.popup h2{font-size:15px;margin:0 0 4px}
+.popup p{margin:0 0 12px;color:#667085;font-size:12.5px}
+.popup .b{display:block;width:100%;padding:9px 12px;margin:0 0 8px;font-weight:600;border-radius:8px;border:1px solid #d0d5dd;background:#fff;color:#1f2328;text-align:left}
+.popup .b small{display:block;font-weight:400;color:#667085;font-size:12px}
+.popup .b.primary{background:#175cd3;border-color:#175cd3;color:#fff}
+.popup .b.primary small{color:#d6e4ff}
+.popup .st{font-size:12.5px;color:#067647;min-height:18px}

@@ -1,0 +1,19 @@
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font:16px/1.5 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1f2328;background:linear-gradient(135deg,#eaf1ff 0%,#f6f8fb 55%,#e9f8f1 100%)}
+.wrap{display:flex;height:100%;align-items:center;padding:0 64px;gap:56px}
+.copy{flex:0 0 380px}
+.copy h1{font-size:44px;line-height:1.1;margin:0 0 18px;letter-spacing:-.02em}
+.copy p{font-size:20px;color:#475467;margin:0 0 14px}
+.copy ul{padding:0;margin:20px 0 0;list-style:none;font-size:18px;color:#344054}
+.copy li{margin:0 0 10px;padding-left:30px;position:relative}
+.copy li:before{content:"✓";position:absolute;left:0;color:#12b76a;font-weight:800}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;color:#175cd3;font-size:17px;margin-bottom:22px}
+.brand img{width:44px;height:44px;margin:-6px}
+.stage{flex:1;position:relative;height:640px}
+.window{position:absolute;background:#fff;border-radius:14px;box-shadow:0 24px 60px rgba(16,24,40,.18),0 2px 6px rgba(16,24,40,.08);overflow:hidden}
+.chrome{height:40px;background:#f2f4f7;border-bottom:1px solid #e4e7ec;display:flex;align-items:center;padding:0 14px;gap:8px}
+.chrome i{width:12px;height:12px;border-radius:50%;background:#d0d5dd;display:block}
+.chrome .url{margin-left:14px;flex:1;height:24px;border-radius:12px;background:#fff;border:1px solid #e4e7ec;font-size:12px;color:#667085;display:flex;align-items:center;padding:0 12px}
+.chrome .ext{width:26px;height:26px;border-radius:6px;background:#dbe6fe;display:flex;align-items:center;justify-content:center}
+.chrome .ext img{width:20px;height:20px}

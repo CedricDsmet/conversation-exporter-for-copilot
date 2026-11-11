@@ -1,0 +1,6 @@
+.DS_Store
+*.zip
+.agents/
+.claude/
+skills-lock.json
+INSTALL.md

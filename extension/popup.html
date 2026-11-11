@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        font: 14px/1.45 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        width: 290px;
+        margin: 0;
+        padding: 16px;
+        color: #1f2328;
+      }
+      h1 {
+        font-size: 15px;
+        margin: 0 0 4px;
+      }
+      p {
+        margin: 0 0 12px;
+        color: #667085;
+        font-size: 12.5px;
+      }
+      button {
+        display: block;
+        width: 100%;
+        padding: 9px 12px;
+        margin: 0 0 8px;
+        font: inherit;
+        font-weight: 600;
+        border-radius: 8px;
+        border: 1px solid #d0d5dd;
+        background: #fff;
+        color: #1f2328;
+        cursor: pointer;
+        text-align: left;
+      }
+      button small {
+        display: block;
+        font-weight: 400;
+        color: #667085;
+        font-size: 12px;
+      }
+      button.primary {
+        background: #175cd3;
+        border-color: #175cd3;
+        color: #fff;
+      }
+      button.primary small {
+        color: #d6e4ff;
+      }
+      button:disabled {
+        opacity: 0.55;
+        cursor: wait;
+      }
+      #status {
+        min-height: 18px;
+        margin: 4px 0 0;
+        font-size: 12.5px;
+        color: #475467;
+      }
+      #status.error {
+        color: #b42318;
+      }
+      #status.ok {
+        color: #067647;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Export this Copilot conversation</h1>
+    <p>Open the conversation in this tab, then choose a format.</p>
+    <button class="primary" data-format="html">
+      Download as web page (.html)
+      <small>Easiest to read. Opens in any browser.</small>
+    </button>
+    <button data-format="md">
+      Download as Markdown (.md)
+      <small>Plain text with structure. Best for reuse.</small>
+    </button>
+    <button data-format="copy">
+      Copy as Markdown
+      <small>Paste it into an email or chat.</small>
+    </button>
+    <div id="status"></div>
+    <script src="popup.js"></script>
+  </body>
+</html>

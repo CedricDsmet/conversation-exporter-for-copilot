@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>.md{font:13.5px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:20px 26px;white-space:pre;color:#344054;background:#fcfcfd}.h{color:#175cd3;font-weight:700}.c{color:#98a2b3}.k{color:#b54708}</style></head><body>
+<div class="wrap"><div class="copy"><div class="brand"><img src="icon.svg">Conversation Exporter for Copilot</div>
+<h1>Clean Markdown for your notes and tools</h1><p>Paste it into a wiki, a notes app or a Git repo, or put it on your clipboard in one click.</p>
+<ul><li>Real Markdown tables and code fences</li><li>Formulas kept as LaTeX</li><li>Private: nothing leaves your browser</li></ul></div>
+<div class="stage"><div class="window" style="left:0;top:0;width:740px;height:640px"><div class="chrome"><i></i><i></i><i></i><div class="url">copilot-hosting-options-for-the-billing-api-2026-11-10.md</div></div>
+<div class="md"><span class="h"># Hosting options for the billing API</span>
+
+<span class="c">_Exported from Microsoft Copilot on 10 November 2026 · 14 messages_</span>
+
+---
+
+<span class="h">## You</span>
+
+Compare our three hosting options on cost, effort and risk, as a table.
+
+---
+
+<span class="h">## Copilot</span>
+
+<span class="h">### Hosting options compared</span>
+
+| Option       | Monthly cost | Setup effort | Risk   |
+| ---          | ---          | ---          | ---    |
+| Managed PaaS | €420         | Low          | Low    |
+| Kubernetes   | €310         | High         | Medium |
+| Single VM    | €90          | Medium       | High   |
+
+<span class="k">**Recommendation:**</span> start on managed PaaS.
+
+<span class="k">```bash</span>
+az webapp up --name billing-api --sku P1v3
+<span class="k">```</span>
+
+Break-even: <span class="k">$C_{k8s} + E \cdot r &lt; C_{paas}$</span></div></div></div></div></body></html>
