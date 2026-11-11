@@ -11,6 +11,35 @@
   const FENCE = '```';
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+  // ---------- SVG / MathML cleaning ----------
+
+  // Diagrams (SVG) and formulas (MathML) are kept as markup in the exported file, so strip
+  // anything inside them that could run code or load something when the file is opened.
+  const FOREIGN_DROP = new Set([
+    'script', 'animate', 'set', 'animatetransform', 'animatemotion', 'discard', 'handler', 'listener',
+    'iframe', 'frame', 'object', 'embed', 'applet', 'form', 'link', 'meta', 'base', 'template', 'portal',
+    'audio', 'video',
+  ]);
+  const URL_ATTRS = new Set(['href', 'xlink:href', 'src', 'action', 'formaction', 'data', 'poster', 'background']);
+  const plainUrl = (v) => v.replace(/[\u0000- \u007f-\u009f]/g, '');
+
+  function cleanForeign(root) {
+    for (const e of [root, ...root.querySelectorAll('*')]) {
+      if (e !== root && FOREIGN_DROP.has(e.localName.toLowerCase())) {
+        e.remove();
+        continue;
+      }
+      for (const a of [...e.attributes]) {
+        const name = a.name.toLowerCase();
+        let ok = !name.startsWith('on');
+        if (URL_ATTRS.has(name)) ok = /^(https?:|#)/i.test(plainUrl(a.value)) || (name === 'src' && /^data:image\//i.test(plainUrl(a.value)));
+        if (/^\s*(javascript|vbscript|data):/i.test(plainUrl(a.value)) && !(name === 'src' && /^data:image\//i.test(plainUrl(a.value)))) ok = false;
+        if (!ok) e.removeAttribute(a.name);
+      }
+    }
+    return root;
+  }
+
   // ---------- images ----------
 
   const imgCache = new Map(); // image src -> data URL (or null when unreadable)
@@ -117,13 +146,7 @@
           // Very wide diagrams would shrink to an unreadable strip: keep them tall enough and let them scroll.
           const vb = (c.getAttribute('viewBox') || '').split(/[\s,]+/).map(Number);
           if (vb.length === 4 && vb[3] > 0 && vb[2] / vb[3] > 5) c.style.minWidth = `${Math.round((vb[2] / vb[3]) * 240)}px`;
-          c.querySelectorAll('script').forEach((s) => s.remove());
-          c.querySelectorAll('*').forEach((e) => {
-            for (const a of [...e.attributes]) {
-              if (/^on/i.test(a.name) || /^\s*javascript:/i.test(a.value)) e.removeAttribute(a.name);
-            }
-          });
-          svg = c;
+          svg = cleanForeign(c);
         }
       } catch {
         /* preview not readable */
@@ -378,6 +401,8 @@
     // Never carry embedded or active content into the exported file, not even inside kept blocks.
     c.querySelectorAll('form').forEach((f) => f.replaceWith(...f.childNodes)); // keep the text, drop the form
     c.querySelectorAll(UNSAFE).forEach((e) => e.remove());
+    // SVG and MathML keep their own attributes below, so clean them with the stricter rules.
+    outermost(c, 'math, svg').forEach(cleanForeign);
     const KEEP = new Set(['href', 'src', 'alt', 'colspan', 'rowspan', 'start', 'data-lang']);
     c.querySelectorAll('*').forEach((e) => {
       if (e.closest('math, svg')) return;
@@ -566,7 +591,9 @@
       )
       .join('\n');
     return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: https:; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escHtml(doc.title)}</title><style>${css}</style></head>
 <body><main>
 <h1>${escHtml(doc.title)}</h1>

@@ -2,7 +2,7 @@
 
 Everything to paste into the Chrome Web Store and Microsoft Edge Add-ons forms.
 - **Publisher:** Cedric De Smet
-- **Support email:** cedric.de.smet@outlook.com
+- **Support email:** cedricDsmet@outlook.be
 - **Source code:** https://github.com/CedricDsmet/conversation-exporter-for-copilot
 - **Privacy policy:** https://cedricdsmet.github.io/conversation-exporter-for-copilot/privacy-policy.html
 
@@ -113,7 +113,7 @@ Tick all three certifications:
 
 - **Privacy policy required?** Answer "Yes" and enter `https://cedricdsmet.github.io/conversation-exporter-for-copilot/privacy-policy.html`. It isn't strictly required when no personal data is collected, but having one speeds up review.
 - **Website**: optional. Use the repo or company page.
-- **Support contact**: `cedric.de.smet@outlook.com`
+- **Support contact**: `cedricDsmet@outlook.be`
 - **Mature content**: No
 
 ---

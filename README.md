@@ -53,7 +53,7 @@ Privacy policy: https://cedricdsmet.github.io/conversation-exporter-for-copilot/
 
 ## Contact
 
-Cedric De Smet · cedric.de.smet@outlook.com
+Cedric De Smet · cedricDsmet@outlook.be
 
 Microsoft and Copilot are trademarks of the Microsoft group of companies. This
 project is not affiliated with or endorsed by Microsoft.
